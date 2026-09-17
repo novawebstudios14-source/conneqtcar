@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="description" content="ConneqtCar — o carro certo, sem complicação. Compra e venda de veículos de um jeito simples, rápido e seguro." />
+    <title>ConneqtCar — O carro certo, sem complicação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a0a0a'/%3E%3Cpath d='M16 37h32l-4-12a6 6 0 0 0-6-4H26a6 6 0 0 0-6 4l-4 12Z' fill='%23d7ff39'/%3E%3Ccircle cx='23' cy='40' r='5' fill='%23fff'/%3E%3Ccircle cx='41' cy='40' r='5' fill='%23fff'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="ConneqtCar, início">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 24"><path d="M3 17h42l-4.2-9.1A4 4 0 0 0 37.2 5H13.4a4 4 0 0 0-3.5 2.1L3 17Z"/><circle cx="12" cy="18" r="4"/><circle cx="37" cy="18" r="4"/></svg>
+        </span>
+        <span>CONNEQT<span>CAR</span></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#escolha">Encontrar meu carro</a>
+        <a href="#vender">Vender meu carro</a>
+        <a href="#processo">Como funciona</a>
+      </nav>
+
+      <a class="header-cta" href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">
+        Ver no Instagram
+        <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m7 4 6 6-6 6"/></svg>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu" data-menu-button>
+        <span></span><span></span>
+      </button>
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Navegação mobile" data-mobile-menu>
+        <a href="#escolha">Encontrar meu carro</a>
+        <a href="#vender">Vender meu carro</a>
+        <a href="#processo">Como funciona</a>
+        <a class="mobile-menu-cta" href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">Abrir Instagram</a>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <img class="hero-image" src="./assets/showroom-red-suv.jpg" alt="SUV vermelho em um showroom contemporâneo" fetchpriority="high" />
+        <div class="hero-shade"></div>
+        <div class="hero-grid container">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span></span> Comprar ou vender pode ser simples</p>
+            <h1 id="hero-title">O carro certo.<br /><em>Sem complicação.</em></h1>
+            <p class="hero-intro">A ConneqtCar aproxima você da melhor escolha — para comprar ou vender seu veículo com agilidade e tranquilidade.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">
+                Ver veículos disponíveis
+                <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m7 4 6 6-6 6"/></svg>
+              </a>
+              <a class="button button-ghost" href="#vender">Quero vender meu carro</a>
+            </div>
+          </div>
+
+          <a class="hero-social reveal" href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer" aria-label="Conheça a ConneqtCar no Instagram">
+            <span class="social-number">16K</span>
+            <span class="social-copy">pessoas já acompanham<br /><strong>@conneqtcar</strong></span>
+            <span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="promise-bar">
+          <div class="container promise-inner">
+            <span><b>01</b> Simples</span>
+            <span><b>02</b> Rápido</span>
+            <span><b>03</b> Seguro</span>
+            <span class="promise-note">Do primeiro contato à chave na mão.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="finder section" id="escolha" aria-labelledby="finder-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <p class="eyebrow dark"><span></span> Comece por aqui</p>
+              <h2 id="finder-title">Que carro combina<br />com o seu momento?</h2>
+            </div>
+            <p>Escolha um perfil. A gente te leva direto para o Instagram, onde você confere as oportunidades mais recentes e conversa com a equipe.</p>
+          </div>
+
+          <div class="car-explorer reveal" data-explorer>
+            <div class="car-visual">
+              <img src="./assets/showroom-dark-car.jpg" alt="Carro em showroom, representação da categoria SUV" data-explorer-image />
+              <div class="visual-overlay"></div>
+              <div class="visual-label">
+                <span data-explorer-kicker>Versatilidade</span>
+                <strong data-explorer-title>SUV</strong>
+              </div>
+            </div>
+            <div class="car-options" role="tablist" aria-label="Perfis de veículo">
+              <button class="car-option is-active" role="tab" aria-selected="true" data-type="SUV" data-kicker="Versatilidade" data-image="./assets/showroom-dark-car.jpg">
+                <span class="option-index">01</span><span class="option-name">SUV</span><span class="option-copy">Espaço, conforto e presença para qualquer caminho.</span><span class="option-arrow">↗</span>
+              </button>
+              <button class="car-option" role="tab" aria-selected="false" data-type="Hatch" data-kicker="Praticidade" data-image="./assets/showroom-white-car.jpg">
+                <span class="option-index">02</span><span class="option-name">Hatch</span><span class="option-copy">Ágil na cidade, econômico na rotina.</span><span class="option-arrow">↗</span>
+              </button>
+              <button class="car-option" role="tab" aria-selected="false" data-type="Sedan" data-kicker="Conforto" data-image="./assets/showroom-red-suv.jpg">
+                <span class="option-index">03</span><span class="option-name">Sedan</span><span class="option-copy">Elegância e estabilidade para viajar melhor.</span><span class="option-arrow">↗</span>
+              </button>
+              <button class="car-option" role="tab" aria-selected="false" data-type="Picape" data-kicker="Força" data-image="./assets/showroom-dark-car.jpg">
+                <span class="option-index">04</span><span class="option-name">Picape</span><span class="option-copy">Capacidade para o trabalho e para a aventura.</span><span class="option-arrow">↗</span>
+              </button>
+              <a class="option-cta" href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">
+                Consultar disponibilidade no Instagram <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paths section" id="vender" aria-labelledby="paths-title">
+        <div class="container">
+          <p class="eyebrow light reveal"><span></span> Duas jornadas, uma conexão</p>
+          <h2 id="paths-title" class="reveal">Você escolhe o destino.<br />A ConneqtCar aproxima.</h2>
+          <div class="path-grid">
+            <article class="path-card path-buy reveal">
+              <div>
+                <span class="path-number">01</span>
+                <p>Quero comprar</p>
+                <h3>Conte o que procura.</h3>
+                <span class="path-description">Modelo, faixa de valor, rotina e prioridades. A conversa começa pela sua necessidade.</span>
+              </div>
+              <a href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">Falar com a equipe <span>↗</span></a>
+            </article>
+            <article class="path-card path-sell reveal">
+              <img src="./assets/showroom-white-car.jpg" alt="" aria-hidden="true" />
+              <div class="path-shade"></div>
+              <div>
+                <span class="path-number">02</span>
+                <p>Quero vender</p>
+                <h3>Seu carro pode ser a próxima conexão.</h3>
+                <span class="path-description">Apresente seu veículo à equipe e descubra o melhor caminho para a negociação.</span>
+              </div>
+              <a href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">Enviar uma mensagem <span>↗</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="process section" id="processo" aria-labelledby="process-title">
+        <div class="container process-layout">
+          <div class="process-heading reveal">
+            <p class="eyebrow dark"><span></span> Sem voltas desnecessárias</p>
+            <h2 id="process-title">Uma conversa.<br />O próximo passo.</h2>
+            <p>O estoque muda rápido. Por isso, a experiência começa no canal que está sempre atualizado: o Instagram da ConneqtCar.</p>
+          </div>
+          <ol class="process-list">
+            <li class="reveal">
+              <span>01</span>
+              <div><h3>Escolha sua jornada</h3><p>Comprar, trocar ou vender: conte à equipe o que faz sentido para você.</p></div>
+            </li>
+            <li class="reveal">
+              <span>02</span>
+              <div><h3>Converse com quem entende</h3><p>Tire dúvidas e alinhe os detalhes diretamente pelo Instagram.</p></div>
+            </li>
+            <li class="reveal">
+              <span>03</span>
+              <div><h3>Avance com segurança</h3><p>Decida no seu ritmo e siga para a negociação quando estiver pronto.</p></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="instagram-cta">
+        <div class="container instagram-inner reveal">
+          <p>@conneqtcar</p>
+          <h2>Seu próximo carro<br />pode estar no próximo post.</h2>
+          <a class="button button-primary" href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">
+            Seguir no Instagram
+            <svg aria-hidden="true" viewBox="0 0 20 20"><path d="m7 4 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-top">
+        <a class="brand footer-brand" href="#inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 24"><path d="M3 17h42l-4.2-9.1A4 4 0 0 0 37.2 5H13.4a4 4 0 0 0-3.5 2.1L3 17Z"/><circle cx="12" cy="18" r="4"/><circle cx="37" cy="18" r="4"/></svg>
+          </span>
+          <span>CONNEQT<span>CAR</span></span>
+        </a>
+        <p>Carro certo, sem complicação.<br />Simples, rápido e seguro.</p>
+        <a class="footer-social" href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">Instagram <span>↗</span></a>
+      </div>
+      <div class="container footer-bottom">
+        <span>© <span data-year></span> ConneqtCar</span>
+        <span>Fotos de ambientação: <a href="https://unsplash.com/" target="_blank" rel="noreferrer">Unsplash</a></span>
+      </div>
+    </footer>
+
+    <a class="floating-cta" href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">
+      Falar com a equipe <span>↗</span>
+    </a>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
