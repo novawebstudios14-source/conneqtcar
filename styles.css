@@ -189,11 +189,12 @@ footer { padding: 64px 0 28px; background: var(--ink); color: var(--text); }
   .hero { min-height: 720px; }
   .hero-image { object-position: 62% center; }
   .hero-shade { background: linear-gradient(0deg, rgba(10,11,9,.94) 0%, rgba(10,11,9,.38) 78%), linear-gradient(90deg, rgba(10,11,9,.7), transparent); }
-  .hero-grid { padding-bottom: 112px; }
-  .hero h1 { font-size: clamp(4rem, 19vw, 6rem); }
+  .hero-grid { width: calc(100% - 32px); min-width: 0; padding-bottom: 112px; }
+  .hero-copy { width: 100%; min-width: 0; }
+  .hero h1 { max-width: 100%; font-size: clamp(3.25rem, 14.5vw, 4.6rem); line-height: .9; letter-spacing: .005em; }
   .hero-intro { margin-top: 22px; }
-  .hero-actions { align-items: stretch; }
-  .hero-actions .button { width: 100%; }
+  .hero-actions { width: 100%; min-width: 0; align-items: stretch; }
+  .hero-actions .button { width: 100%; max-width: 100%; min-width: 0; padding-inline: 18px; white-space: normal; text-align: center; }
   .promise-inner { min-height: 60px; justify-content: space-between; gap: 8px; }
   .promise-inner > span { font-size: 15px; }
   .promise-inner .promise-note { display: none; }
