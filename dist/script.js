@@ -2,20 +2,25 @@ const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const floatingCta = document.querySelector(".floating-cta");
+const hero = document.querySelector(".hero");
 
-const syncScrollState = () => {
-  const scrolled = window.scrollY > 24;
-  header?.classList.toggle("is-scrolled", scrolled);
-  floatingCta?.classList.toggle("is-visible", window.scrollY > 520);
-};
+const heroObserver = new IntersectionObserver(
+  ([entry]) => {
+    const pastHero = !entry.isIntersecting;
+    header?.classList.toggle("is-scrolled", pastHero);
+    floatingCta?.classList.toggle("is-visible", pastHero);
+  },
+  { rootMargin: "-72px 0px 0px", threshold: 0 }
+);
 
-syncScrollState();
-window.addEventListener("scroll", syncScrollState, { passive: true });
+if (hero) heroObserver.observe(hero);
 
 menuButton?.addEventListener("click", () => {
   const open = menuButton.getAttribute("aria-expanded") === "true";
   menuButton.setAttribute("aria-expanded", String(!open));
   menuButton.setAttribute("aria-label", open ? "Abrir menu" : "Fechar menu");
+  mobileMenu?.setAttribute("aria-hidden", String(open));
+  if (mobileMenu) mobileMenu.inert = open;
   mobileMenu?.classList.toggle("is-open", !open);
   document.body.classList.toggle("menu-open", !open);
   header?.classList.add("is-scrolled");
@@ -24,8 +29,11 @@ menuButton?.addEventListener("click", () => {
 mobileMenu?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     menuButton?.setAttribute("aria-expanded", "false");
+    mobileMenu?.setAttribute("aria-hidden", "true");
+    if (mobileMenu) mobileMenu.inert = true;
     mobileMenu?.classList.remove("is-open");
     document.body.classList.remove("menu-open");
+    if (hero?.getBoundingClientRect().bottom > 72) header?.classList.remove("is-scrolled");
   });
 });
 
