@@ -69,7 +69,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .finder { background: var(--ink); }
 .section-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 64px; }
 .section-heading h2, .paths h2, .process h2, .instagram-cta h2 { margin: 0; font: 600 clamp(3.1rem, 5.7vw, 5.8rem)/.92 var(--display); letter-spacing: .015em; }
-.section-heading > p, .process-heading > p:last-child { max-width: 60ch; margin: 0; color: var(--muted); font-size: 17px; }
+.section-heading > p, .process-heading > p { max-width: 60ch; margin: 0; color: var(--muted); font-size: 17px; }
 .car-explorer { display: grid; grid-template-columns: 1.35fr .65fr; min-height: 620px; background: var(--surface); border: 1px solid var(--line); color: var(--text); }
 .car-visual { position: relative; min-height: 560px; overflow: hidden; }
 .car-visual img { width: 100%; height: 100%; object-fit: cover; transition: opacity 180ms var(--ease-out), transform 260ms var(--ease-out), filter 180ms var(--ease-out); }
@@ -109,7 +109,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .process { background: var(--ink); }
 .process-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 108px; align-items: start; }
 .process-heading { position: sticky; top: 112px; }
-.process-heading > p:last-child { max-width: 46ch; margin-top: 28px; }
+.process-heading > p { max-width: 46ch; margin-top: 28px; }
+.contact-chip { display: inline-flex; flex-direction: column; gap: 2px; margin-top: 28px; padding: 16px 18px; border: 1px solid rgba(216,170,60,.55); background: rgba(216,170,60,.07); transition: transform 140ms var(--ease-out), background-color 160ms ease; }
+.contact-chip span { color: var(--gold-bright); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.contact-chip strong { font-size: 16px; }
 .process-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .process-list li { padding: 38px 0; border-bottom: 1px solid var(--line); }
 .process-list h3 { margin: 0 0 10px; font: 600 32px var(--display); letter-spacing: .023em; text-transform: uppercase; }
@@ -125,8 +128,9 @@ footer { padding: 64px 0 28px; background: var(--ink); color: var(--text); }
 .footer-brand { font-size: 24px; }
 .footer-brand .brand-logo { width: 54px; height: 54px; }
 .footer-top > p { margin: 0; color: var(--muted); }
-.footer-social { justify-self: end; display: flex; gap: 18px; align-items: center; font-weight: 700; }
-.footer-social span { color: var(--gold-bright); font-size: 20px; }
+.footer-links { justify-self: end; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; font-weight: 700; }
+.footer-links a { display: flex; gap: 18px; align-items: center; }
+.footer-links span { color: var(--gold-bright); font-size: 20px; }
 .footer-bottom { display: flex; justify-content: space-between; padding-top: 22px; border-top: 1px solid var(--line); color: #868a7f; font-size: 12px; }
 .footer-bottom a { text-decoration: underline; }
 .floating-cta { display: none; }
@@ -151,6 +155,7 @@ footer { padding: 64px 0 28px; background: var(--ink); color: var(--text); }
   .car-option:hover .option-arrow { opacity: 1; transform: none; }
   .option-cta:hover span, .path-card > a:hover span { transform: translate(3px,-3px); }
   .path-sell:hover > img { transform: scale(1.035); }
+  .contact-chip:hover { transform: translateY(-2px); background: rgba(216,170,60,.12); }
 }
 
 .header-cta:active, .button:active, .hero-social:active, .car-option:active, .option-cta:active, .path-card > a:active, .floating-cta:active { transform: scale(.97); }
@@ -205,7 +210,7 @@ footer { padding: 64px 0 28px; background: var(--ink); color: var(--text); }
   .process-list li { padding: 30px 0; }
   .instagram-cta { padding: 104px 0; }
   .footer-top { grid-template-columns: 1fr; gap: 36px; padding-bottom: 52px; }
-  .footer-social { justify-self: start; }
+  .footer-links { justify-self: start; align-items: flex-start; }
   .footer-bottom { flex-direction: column; gap: 8px; }
   .floating-cta { position: fixed; z-index: 90; inset: auto 12px 12px; display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); color: var(--ink); font-weight: 700; box-shadow: 0 16px 42px rgba(0,0,0,.38); transform: translateY(120px); transition: transform 240ms var(--ease-out); }
   .floating-cta.is-visible { transform: none; }
