@@ -86,7 +86,7 @@
           </div>
 
           <div class="car-explorer reveal" data-explorer>
-            <div class="car-visual">
+            <div class="car-visual" id="car-preview" role="tabpanel" aria-live="polite" tabindex="0">
               <img src="./assets/showroom-dark-car.jpg" alt="Carro em showroom, representação da categoria SUV" data-explorer-image />
               <div class="visual-overlay"></div>
               <div class="visual-label">
@@ -94,17 +94,17 @@
                 <strong data-explorer-title>SUV</strong>
               </div>
             </div>
-            <div class="car-options" role="tablist" aria-label="Perfis de veículo">
-              <button class="car-option is-active" role="tab" aria-selected="true" data-type="SUV" data-kicker="Versatilidade" data-image="./assets/showroom-dark-car.jpg">
+            <div class="car-options" role="tablist" aria-label="Perfis de veículo" aria-orientation="vertical">
+              <button class="car-option is-active" role="tab" aria-selected="true" aria-controls="car-preview" tabindex="0" data-type="SUV" data-kicker="Versatilidade" data-image="./assets/showroom-dark-car.jpg">
                 <span class="option-name">SUV</span><span class="option-copy">Espaço, conforto e presença para qualquer caminho.</span><span class="option-arrow" aria-hidden="true">↗</span>
               </button>
-              <button class="car-option" role="tab" aria-selected="false" data-type="Hatch" data-kicker="Praticidade" data-image="./assets/showroom-white-car.jpg">
+              <button class="car-option" role="tab" aria-selected="false" aria-controls="car-preview" tabindex="-1" data-type="Hatch" data-kicker="Praticidade" data-image="./assets/showroom-white-car.jpg">
                 <span class="option-name">Hatch</span><span class="option-copy">Ágil na cidade, econômico na rotina.</span><span class="option-arrow" aria-hidden="true">↗</span>
               </button>
-              <button class="car-option" role="tab" aria-selected="false" data-type="Sedan" data-kicker="Conforto" data-image="./assets/showroom-red-suv.jpg">
+              <button class="car-option" role="tab" aria-selected="false" aria-controls="car-preview" tabindex="-1" data-type="Sedan" data-kicker="Conforto" data-image="./assets/showroom-red-suv.jpg">
                 <span class="option-name">Sedan</span><span class="option-copy">Elegância e estabilidade para viajar melhor.</span><span class="option-arrow" aria-hidden="true">↗</span>
               </button>
-              <button class="car-option" role="tab" aria-selected="false" data-type="Picape" data-kicker="Força" data-image="./assets/showroom-dark-car.jpg">
+              <button class="car-option" role="tab" aria-selected="false" aria-controls="car-preview" tabindex="-1" data-type="Picape" data-kicker="Força" data-image="./assets/showroom-dark-car.jpg">
                 <span class="option-name">Picape</span><span class="option-copy">Capacidade para o trabalho e para a aventura.</span><span class="option-arrow" aria-hidden="true">↗</span>
               </button>
               <a class="option-cta" href="https://www.instagram.com/conneqtcar/" target="_blank" rel="noreferrer">

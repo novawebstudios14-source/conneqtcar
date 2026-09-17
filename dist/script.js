@@ -57,24 +57,42 @@ const explorerVisual = explorer?.querySelector(".car-visual");
 const explorerTitle = explorer?.querySelector("[data-explorer-title]");
 const explorerKicker = explorer?.querySelector("[data-explorer-kicker]");
 
-explorer?.querySelectorAll(".car-option").forEach((option) => {
-  option.addEventListener("click", () => {
-    explorer.querySelectorAll(".car-option").forEach((item) => {
-      const selected = item === option;
-      item.classList.toggle("is-active", selected);
-      item.setAttribute("aria-selected", String(selected));
-    });
+const explorerOptions = [...(explorer?.querySelectorAll(".car-option") || [])];
 
-    explorerVisual?.classList.add("is-changing");
-    window.setTimeout(() => {
-      if (explorerImage) {
-        explorerImage.src = option.dataset.image || explorerImage.src;
-        explorerImage.alt = `Carro em showroom, representação da categoria ${option.dataset.type}`;
-      }
-      if (explorerTitle) explorerTitle.textContent = option.dataset.type || "";
-      if (explorerKicker) explorerKicker.textContent = option.dataset.kicker || "";
-      explorerVisual?.classList.remove("is-changing");
-    }, 220);
+const selectExplorerOption = (option) => {
+  explorerOptions.forEach((item) => {
+    const selected = item === option;
+    item.classList.toggle("is-active", selected);
+    item.setAttribute("aria-selected", String(selected));
+    item.setAttribute("tabindex", selected ? "0" : "-1");
+  });
+
+  explorerVisual?.classList.add("is-changing");
+  window.setTimeout(() => {
+    if (explorerImage) {
+      explorerImage.src = option.dataset.image || explorerImage.src;
+      explorerImage.alt = `Carro em showroom, representação da categoria ${option.dataset.type}`;
+    }
+    if (explorerTitle) explorerTitle.textContent = option.dataset.type || "";
+    if (explorerKicker) explorerKicker.textContent = option.dataset.kicker || "";
+    explorerVisual?.classList.remove("is-changing");
+  }, 220);
+};
+
+explorerOptions.forEach((option, index) => {
+  option.addEventListener("click", () => selectExplorerOption(option));
+  option.addEventListener("keydown", (event) => {
+    const last = explorerOptions.length - 1;
+    const nextIndex = event.key === "ArrowDown" ? (index + 1) % explorerOptions.length
+      : event.key === "ArrowUp" ? (index - 1 + explorerOptions.length) % explorerOptions.length
+      : event.key === "Home" ? 0
+      : event.key === "End" ? last
+      : null;
+
+    if (nextIndex === null) return;
+    event.preventDefault();
+    explorerOptions[nextIndex].focus();
+    selectExplorerOption(explorerOptions[nextIndex]);
   });
 });
 
