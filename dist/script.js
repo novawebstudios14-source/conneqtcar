@@ -1,0 +1,101 @@
+const header = document.querySelector("[data-header]");
+const menuButton = document.querySelector("[data-menu-button]");
+const mobileMenu = document.querySelector("[data-mobile-menu]");
+const floatingCta = document.querySelector(".floating-cta");
+const hero = document.querySelector(".hero");
+
+const heroObserver = new IntersectionObserver(
+  ([entry]) => {
+    const pastHero = !entry.isIntersecting;
+    header?.classList.toggle("is-scrolled", pastHero);
+    floatingCta?.classList.toggle("is-visible", pastHero);
+  },
+  { rootMargin: "-72px 0px 0px", threshold: 0 }
+);
+
+if (hero) heroObserver.observe(hero);
+
+menuButton?.addEventListener("click", () => {
+  const open = menuButton.getAttribute("aria-expanded") === "true";
+  menuButton.setAttribute("aria-expanded", String(!open));
+  menuButton.setAttribute("aria-label", open ? "Abrir menu" : "Fechar menu");
+  mobileMenu?.setAttribute("aria-hidden", String(open));
+  if (mobileMenu) mobileMenu.inert = open;
+  mobileMenu?.classList.toggle("is-open", !open);
+  document.body.classList.toggle("menu-open", !open);
+  header?.classList.add("is-scrolled");
+});
+
+mobileMenu?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    menuButton?.setAttribute("aria-expanded", "false");
+    mobileMenu?.setAttribute("aria-hidden", "true");
+    if (mobileMenu) mobileMenu.inert = true;
+    mobileMenu?.classList.remove("is-open");
+    document.body.classList.remove("menu-open");
+    if (hero?.getBoundingClientRect().bottom > 72) header?.classList.remove("is-scrolled");
+  });
+});
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.14 }
+);
+
+document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+const explorer = document.querySelector("[data-explorer]");
+const explorerImage = explorer?.querySelector("[data-explorer-image]");
+const explorerVisual = explorer?.querySelector(".car-visual");
+const explorerTitle = explorer?.querySelector("[data-explorer-title]");
+const explorerKicker = explorer?.querySelector("[data-explorer-kicker]");
+
+const explorerOptions = [...(explorer?.querySelectorAll(".car-option") || [])];
+
+const selectExplorerOption = (option) => {
+  explorerOptions.forEach((item) => {
+    const selected = item === option;
+    item.classList.toggle("is-active", selected);
+    item.setAttribute("aria-selected", String(selected));
+    item.setAttribute("tabindex", selected ? "0" : "-1");
+  });
+
+  explorerVisual?.classList.add("is-changing");
+  window.setTimeout(() => {
+    if (explorerImage) {
+      explorerImage.src = option.dataset.image || explorerImage.src;
+      explorerImage.alt = `Carro em showroom, representação da categoria ${option.dataset.type}`;
+    }
+    if (explorerTitle) explorerTitle.textContent = option.dataset.type || "";
+    if (explorerKicker) explorerKicker.textContent = option.dataset.kicker || "";
+    explorerVisual?.classList.remove("is-changing");
+  }, 220);
+};
+
+explorerOptions.forEach((option, index) => {
+  option.addEventListener("click", () => selectExplorerOption(option));
+  option.addEventListener("keydown", (event) => {
+    const last = explorerOptions.length - 1;
+    const nextIndex = event.key === "ArrowDown" ? (index + 1) % explorerOptions.length
+      : event.key === "ArrowUp" ? (index - 1 + explorerOptions.length) % explorerOptions.length
+      : event.key === "Home" ? 0
+      : event.key === "End" ? last
+      : null;
+
+    if (nextIndex === null) return;
+    event.preventDefault();
+    explorerOptions[nextIndex].focus();
+    selectExplorerOption(explorerOptions[nextIndex]);
+  });
+});
+
+document.querySelectorAll("[data-year]").forEach((element) => {
+  element.textContent = String(new Date().getFullYear());
+});
